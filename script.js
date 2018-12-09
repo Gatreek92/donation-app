@@ -25,4 +25,12 @@ const daysDiff = (date1,date2) => {
 
    let diff =  date1_ms - date2_ms;
    daysLeft = Math.round(diff/one_day_ms);
+}  let diff =  date1_ms - date2_ms;
+   daysLeft = Math.round(diff/one_day_ms);
+}
+
+const donate= () => {
+    donation = donation + 50;
+    amountLeft = total - donation;
+    updateCard();
 }
