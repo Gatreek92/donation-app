@@ -1,10 +1,9 @@
 'use strict'
-window.onload = () => {
-    const total = 1000;
+const total = 1000;
 const dealine = new Date(2019,0,1);
 const currentDay = new Date() ;
-    let donation = 0;
-    let donors = 0;
+let donation = 0;
+let donors = 0;
 let amountLeft = total - donation;
 let daysLeft;
 
@@ -12,6 +11,11 @@ window.onload = () => {
     daysDiff(dealine,currentDay);
     updateCard();
 
+}
+
+const updateCard= () => {
+document.getElementsByClassName("donors")[0].innerHTML= donors;
+document.getElementsByClassName("days")[0].innerHTML= daysLeft;
 }
 
 const daysDiff = (date1,date2) => {
