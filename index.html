@@ -5,17 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
 </head>
-<body>
+<body class="container">
     <div class="card">
             <div class="card-hint"></div>
         <div class="progressbar"></div>
         <div class="body">
-            <p class="days-left"><span>Only <span class="days"></span> days left</span> to fund this project</p>
-            <p class="call-to-join">Join the <span class="donors"></span> donors who have already supported this project. Every dollar helps</p>
-            <div>
-            <input type="text" value="50$" disabled/>
-            <input type="button" value="Give Now" onclick="donate()"/>
+            <p class="days-left"><span><span>Only <span class="days"></span> days left</span></span> to fund this project</p>
+            <p class="call-to-join">Join the <span class="donors"></span> donors who have already supported this project.<br> Every dollar helps</p>
+        <div class="giveNow-container">
+            <input type="text" value="50$" class="donationInput" disabled/>
+            <input type="button" value="Give Now" onclick="donate()" class="giveNow"/>
         </div>
         <span class="why-to-give">Why give 50$ ?</span>
         </div>
