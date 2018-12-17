@@ -8,14 +8,14 @@ let amountLeft = total - donation;
 let daysLeft;
 
 window.onload = () => {
-    daysDiff(dealine,currentDay);
-    updateCard();
+ daysDiff(dealine,currentDay);
+ updateCard();
 
 }
 
 const updateCard= () => {
-document.getElementsByClassName("donors")[0].innerHTML= donors;
-document.getElementsByClassName("days")[0].innerHTML= daysLeft;
+       document.getElementsByClassName("donors")[0].innerHTML= donors;
+    document.getElementsByClassName("days")[0].innerHTML= daysLeft;
 }
 
 const daysDiff = (date1,date2) => {
@@ -28,7 +28,16 @@ const daysDiff = (date1,date2) => {
 }
 
 const donate= () => {
-    donation = donation + 50;
+    if (donation < total)
+    {donation = donation + 50;
     amountLeft = total - donation;
-    updateCard();
+    updateCard();}
+    else stopDonation();
+}
+
+const stopDonation = () => {
+    let inputs =   document.getElementsByTagName('input');
+    for (let index = 0; index < inputs.length; index++) {
+    inputs[index].setAttribute('disabled','true')     
+    }
 }
