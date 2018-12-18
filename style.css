@@ -48,3 +48,7 @@ html,body{
     font-size: 16px;
     margin: 15px 0px 0px 15px;
 }
+.progressbar{
+    background-color: orangered;
+    height: 10px;
+}

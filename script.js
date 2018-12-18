@@ -6,15 +6,17 @@ let donation = 0;
 let donors = 20;
 let amountLeft = total - donation;
 let daysLeft;
+let progress = (donation * 100) / total
 
 window.onload = () => {
- daysDiff(dealine,currentDay);
- updateCard();
+document.getElementsByClassName('progressbar')[0].style.width = progress;
+daysDiff(dealine,currentDay);
+updateCard();
 
 }
 
 const updateCard= () => {
-       document.getElementsByClassName("donors")[0].innerHTML= donors;
+    document.getElementsByClassName("donors")[0].innerHTML= donors;
     document.getElementsByClassName("days")[0].innerHTML= daysLeft;
 }
 
@@ -28,11 +30,12 @@ const daysDiff = (date1,date2) => {
 }
 
 const donate= () => {
-    if (donation < total)
-    {donation = donation + 50;
+    donation = donation + 50;
     amountLeft = total - donation;
-    updateCard();}
-    else stopDonation();
+    udpateProgress();
+    updateCard();
+    if (donation === total)
+    stopDonation()
 }
 
 const stopDonation = () => {
@@ -40,4 +43,9 @@ const stopDonation = () => {
     for (let index = 0; index < inputs.length; index++) {
     inputs[index].setAttribute('disabled','true')     
     }
+}
+
+const udpateProgress=()=>{
+    progress = (donation * 100) / total;
+    document.getElementsByClassName('progressbar')[0].setAttribute('style',`width: ${progress}%`);
 }
