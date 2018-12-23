@@ -18,6 +18,7 @@ updateCard();
 const updateCard= () => {
     document.getElementsByClassName("donors")[0].innerHTML= donors;
     document.getElementsByClassName("days")[0].innerHTML= daysLeft;
+    document.getElementsByClassName("amountLeft")[0].innerHTML= amountLeft;
 }
 
 const daysDiff = (date1,date2) => {
