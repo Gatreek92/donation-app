@@ -1,21 +1,25 @@
 'use strict'
 const total = 1000;
-const dealine = new Date(2019,0,1);
+const dealine = new Date(2019,11,1);
 const currentDay = new Date() ;
 let donation = 0;
 let donors = 20;
 let amountLeft = total - donation;
 let daysLeft;
+let progress = (donation * 100) / total
 
 window.onload = () => {
- daysDiff(dealine,currentDay);
- updateCard();
+
+document.getElementsByClassName('progressbar')[0].style.width = progress;
+daysDiff(dealine,currentDay);
+updateCard();
 
 }
 
 const updateCard= () => {
-       document.getElementsByClassName("donors")[0].innerHTML= donors;
+    document.getElementsByClassName("donors")[0].innerHTML= donors;
     document.getElementsByClassName("days")[0].innerHTML= daysLeft;
+    document.getElementsByClassName("amountLeft")[0].innerHTML= amountLeft;
 }
 
 const daysDiff = (date1,date2) => {
@@ -28,16 +32,32 @@ const daysDiff = (date1,date2) => {
 }
 
 const donate= () => {
-    if (donation < total)
-    {donation = donation + 50;
+    donation = donation + 50;
     amountLeft = total - donation;
-    updateCard();}
-    else stopDonation();
+    udpateProgress();
+    updateCard();
+    if (donation === total)
+    stopDonation()
 }
 
 const stopDonation = () => {
-    let inputs =   document.getElementsByTagName('input');
-    for (let index = 0; index < inputs.length; index++) {
-    inputs[index].setAttribute('disabled','true')     
-    }
+    document.getElementsByClassName("giveNow")[0].setAttribute('disabled','true');     
+    document.getElementsByClassName("arrow_box")[0].innerHTML= "Thanks for your donation !";
+    document.getElementsByClassName('arrow_box')[0].setAttribute('style',`color: green`);
 }
+
+const udpateProgress=()=>{
+    progress = (donation * 100) / total;
+    document.getElementsByClassName('progressbar')[0].setAttribute('style',`width: ${progress}%`);
+}
+
+const share = ()=>{
+    let facebookWindow = window.open('https://www.facebook.com/sharer/sharer.php?u=' + document.URL, 'facebook-popup', 'height=350,width=600');
+    if(facebookWindow.focus) { facebookWindow.focus(); }
+      return false;
+  }
+
+const save = () => {
+    alert('Saved !!')
+}
+    
