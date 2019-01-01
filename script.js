@@ -1,6 +1,6 @@
 'use strict'
 const total = 1000;
-const dealine = new Date(2019,0,1);
+const dealine = new Date(2019,11,1);
 const currentDay = new Date() ;
 let donation = 0;
 let donors = 20;
@@ -9,6 +9,7 @@ let daysLeft;
 let progress = (donation * 100) / total
 
 window.onload = () => {
+
 document.getElementsByClassName('progressbar')[0].style.width = progress;
 daysDiff(dealine,currentDay);
 updateCard();
@@ -44,9 +45,18 @@ const stopDonation = () => {
     for (let index = 0; index < inputs.length; index++) {
     inputs[index].setAttribute('disabled','true')     
     }
+    document.getElementsByClassName("arrow_box")[0].innerHTML= "Thanks for your donation !";
+    document.getElementsByClassName('arrow_box')[0].setAttribute('style',`color: green`);
 }
 
 const udpateProgress=()=>{
     progress = (donation * 100) / total;
     document.getElementsByClassName('progressbar')[0].setAttribute('style',`width: ${progress}%`);
 }
+
+const share = ()=>{
+    let facebookWindow = window.open('https://www.facebook.com/sharer/sharer.php?u=' + document.URL, 'facebook-popup', 'height=350,width=600');
+    if(facebookWindow.focus) { facebookWindow.focus(); }
+      return false;
+  }
+    
