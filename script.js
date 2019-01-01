@@ -59,4 +59,8 @@ const share = ()=>{
     if(facebookWindow.focus) { facebookWindow.focus(); }
       return false;
   }
+
+const save = () => {
+    alert('Saved !!')
+}
     
