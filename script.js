@@ -41,10 +41,7 @@ const donate= () => {
 }
 
 const stopDonation = () => {
-    let inputs =   document.getElementsByTagName('input');
-    for (let index = 0; index < inputs.length; index++) {
-    inputs[index].setAttribute('disabled','true')     
-    }
+    document.getElementsByClassName("giveNow")[0].setAttribute('disabled','true');     
     document.getElementsByClassName("arrow_box")[0].innerHTML= "Thanks for your donation !";
     document.getElementsByClassName('arrow_box')[0].setAttribute('style',`color: green`);
 }
